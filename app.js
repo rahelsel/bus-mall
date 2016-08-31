@@ -1,7 +1,6 @@
 'use strict';
 
 var imagesArray = [];
-
 var surveyLength = 0; //eslint-disable-line
 
 var leftImage = document.getElementById('left'); //eslint-disable-line
@@ -14,37 +13,39 @@ var randomIndex1 = 0;
 var randomIndex2 = 0;
 var randomIndex3 = 0;
 
-//Constructor Function //
+//// CONSTRUCTOR FUNCTION ////
 function ImageTracker(imageName, path) {
-  this.ImageName = imageName;
+  this.imageName = imageName;
   this.path = path;
   this.viewed = 0;
   this.clicked = 0;
   imagesArray.push(this);
 }
-//Image objects that will go through the constructor//
-new ImageTracker ('Bag', 'img/bag.jpg');
-new ImageTracker ('Banana', 'img/banana.jpg');
-new ImageTracker ('Bathroom', 'img/bathroom.jpg');
-new ImageTracker ('Boots', 'img/boots.jpg');
-new ImageTracker ('Breakfast', 'img/breakfast.jpg');
-new ImageTracker ('Bubblegum', 'img/bubblegum.jpg');
-new ImageTracker ('Chair', 'img/chair.jpg');
-new ImageTracker ('Cthulhu', 'img/cthulhu.jpg');
-new ImageTracker ('Dog Duck', 'img/dog-duck.jpg');
-new ImageTracker ('Dragon', 'img/dragon.jpg');
-new ImageTracker ('Pen', 'img/pen.jpg');
-new ImageTracker ('Pet Sweep', 'img/pet-sweet.jpg');
-new ImageTracker ('Scissors', 'img/scissors.jpg');
-new ImageTracker ('Shark', 'img/shark.jpg');
-new ImageTracker ('Sweep', 'img/sweep.jpg');
-new ImageTracker ('Tauntaun', 'img/tauntaun.jpg');
-new ImageTracker ('Unicorn', 'img/unicorn.jpg');
-new ImageTracker ('Water Can', 'img/water-can.jpg');
-new ImageTracker ('Wine Glass', 'img/wine-glass.jpg');
 
-// Generate 3 random images without duplicates //
-function generateRandomThreeImg() {
+//// CREATE OBJECTS ////
+new ImageTracker ('Bag', 'imgs/bag.jpg'); //eslint-disable-line
+new ImageTracker ('Banana', 'imgs/banana.jpg'); //eslint-disable-line
+new ImageTracker ('Bathroom', 'imgs/bathroom.jpg'); //eslint-disable-line
+new ImageTracker ('Boots', 'imgs/boots.jpg'); //eslint-disable-line
+new ImageTracker ('Breakfast', 'imgs/breakfast.jpg'); //eslint-disable-line
+new ImageTracker ('Bubblegum', 'img/bubblegum.jpg'); //eslint-disable-line
+new ImageTracker ('Chair', 'img/chair.jpg'); //eslint-disable-line
+new ImageTracker ('Cthulhu', 'img/cthulhu.jpg'); //eslint-disable-line
+new ImageTracker ('Dog Duck', 'img/dog-duck.jpg'); //eslint-disable-line
+new ImageTracker ('Dragon', 'img/dragon.jpg'); //eslint-disable-line
+new ImageTracker ('Pen', 'img/pen.jpg'); //eslint-disable-line
+new ImageTracker ('Pet Sweep', 'img/pet-sweep.jpg'); //eslint-disable-line
+new ImageTracker ('Scissors', 'img/scissors.jpg'); //eslint-disable-line
+new ImageTracker ('Shark', 'img/shark.jpg'); //eslint-disable-line
+new ImageTracker ('Sweep', 'img/sweep.jpg'); //eslint-disable-line
+new ImageTracker ('Tauntaun', 'img/tauntaun.jpg'); //eslint-disable-line
+new ImageTracker ('Unicorn', 'img/unicorn.jpg'); //eslint-disable-line
+new ImageTracker ('USB', 'img/usb.jpg'); //eslint-disable-line
+new ImageTracker ('Water Can', 'img/water-can.jpg'); //eslint-disable-line
+new ImageTracker ('Wine Glass', 'img/wine-glass.jpg'); //eslint-disable-line
+
+//// GET RANDOM 3 IMAGES -- NO DUPLICATES ////
+function generateRandomThree() {
   randomIndex1 = Math.floor(Math.random() * (imagesArray.length));
 
   randomIndex2 = Math.floor(Math.random() * (imagesArray.length));
@@ -65,15 +66,15 @@ function generateRandomThreeImg() {
   centerImage.alt = imagesArray[randomIndex2].imageName;
 
   rightImage.src = imagesArray[randomIndex3].path;
-  rightImage.alt = imagesArray[randomIndex3].imageName;
+  rightImage.alt - imagesArray[randomIndex3].imageName;
 
   imagesArray[randomIndex1].viewed = imagesArray[randomIndex1].viewed + 1;
   imagesArray[randomIndex2].viewed = imagesArray[randomIndex2].viewed + 1;
-  imagesArray[randomIndex3].viewed = imagesArray[randomIndex3].viewed + 1;
-
+  imagesArray[randomIndex2].viewed = imagesArray[randomIndex2].viewed + 1;
 };
 
-// Click function //
+////////////////////////////////
+
 function handleButtonClick() {
   for (var i = 0; i < imagesArray.length; i++) {
     var listElement = document.createElement('li');
@@ -81,6 +82,7 @@ function handleButtonClick() {
     resultList.appendChild(listElement);
   }
 }
+
 
 function handleUserClick() {
   var userClick = event.target.id;
