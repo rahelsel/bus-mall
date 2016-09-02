@@ -17,7 +17,7 @@ var randomIndex3 = 0;
 
 //// IMG OBJECTS ARRAY //// make an array var stuff [] for loop
 
-var images = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/water-can.jpg', 'img/wine-glass.jpg'] //eslint-disable-line
+var images = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/water-can.jpg', 'img/wine-glass.jpg'] //eslint-disable-line
 
 //// CONSTRUCTOR FUNCTION ////
 
@@ -30,7 +30,7 @@ function ImageTracker(imageName, path) {
 }
 
 for (var i = 0; i < images.length; i++) {
-  new ImageTracker(images[i].split('/')[i].split('.')[0],images[i]);
+  new ImageTracker(images[i].split('/')[1].split('.')[0],images[i]);
 }
 
 //// GET RANDOM 3 IMAGES -- NO DUPLICATES ////
