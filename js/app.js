@@ -1,3 +1,5 @@
+///Paired Progamming with Michael Molinari///
+
 'use strict';
 
 var imagesArray = [];
@@ -13,7 +15,12 @@ var randomIndex1 = 0;
 var randomIndex2 = 0;
 var randomIndex3 = 0;
 
+//// IMG OBJECTS ARRAY //// make an array var stuff [] for loop
+
+var images = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/water-can.jpg', 'img/wine-glass.jpg'] //eslint-disable-line
+
 //// CONSTRUCTOR FUNCTION ////
+
 function ImageTracker(imageName, path) {
   this.imageName = imageName;
   this.path = path;
@@ -22,25 +29,9 @@ function ImageTracker(imageName, path) {
   imagesArray.push(this);
 }
 
-//// CREATE OBJECTS ////
-new ImageTracker ('Bag', 'img/bag.jpg'); //eslint-disable-line
-new ImageTracker ('Banana', 'img/banana.jpg'); //eslint-disable-line
-new ImageTracker ('Bathroom', 'img/bathroom.jpg'); //eslint-disable-line
-new ImageTracker ('Boots', 'img/boots.jpg'); //eslint-disable-line
-new ImageTracker ('Breakfast', 'img/breakfast.jpg'); //eslint-disable-line
-new ImageTracker ('Bubblegum', 'img/bubblegum.jpg'); //eslint-disable-line
-new ImageTracker ('Chair', 'img/chair.jpg'); //eslint-disable-line
-new ImageTracker ('Cthulhu', 'img/cthulhu.jpg'); //eslint-disable-line
-new ImageTracker ('Dog Duck', 'img/dog-duck.jpg'); //eslint-disable-line
-new ImageTracker ('Dragon', 'img/dragon.jpg'); //eslint-disable-line
-new ImageTracker ('Pen', 'img/pen.jpg'); //eslint-disable-line
-new ImageTracker ('Pet Sweep', 'img/pet-sweep.jpg'); //eslint-disable-line
-new ImageTracker ('Scissors', 'img/scissors.jpg'); //eslint-disable-line
-new ImageTracker ('Shark', 'img/shark.jpg'); //eslint-disable-line
-new ImageTracker ('Tauntaun', 'img/tauntaun.jpg'); //eslint-disable-line
-new ImageTracker ('Unicorn', 'img/unicorn.jpg'); //eslint-disable-line
-new ImageTracker ('Water Can', 'img/water-can.jpg'); //eslint-disable-line
-new ImageTracker ('Wine Glass', 'img/wine-glass.jpg'); //eslint-disable-line
+for (var i = 0; i < images.length; i++) {
+  new ImageTracker(images[i].split('/')[i].split('.')[0],images[i]);
+}
 
 //// GET RANDOM 3 IMAGES -- NO DUPLICATES ////
 function generateRandomThree() {
@@ -71,16 +62,7 @@ function generateRandomThree() {
   imagesArray[randomIndex2].viewed = imagesArray[randomIndex2].viewed + 1;
 };
 
-////////////////////////////////
-
-function handleButtonClick() {
-  for (var i = 0; i < imagesArray.length; i++) {
-    var listElement = document.createElement('li');
-    listElement.textContent = imagesArray[i].imageName + ' was displayed ' + imagesArray[i].viewed + ' times and clicked ' + imagesArray[i].clicked;
-    resultList.appendChild(listElement);
-  }
-}
-
+/////TRACKS NUMBER OF CLICKS TO SURVEY AND STOPS AT 25 /////
 
 function handleUserClick() {
   var userClick = event.target.id;
@@ -111,11 +93,7 @@ function handleUserClick() {
   if (surveyLength < 25) {
     generateRandomThree();
   } else {
-    threePictures.removeEventListener('click',handleUserClick);
-    var button = document.createElement('button');
-    button.textContent = 'View Results';
-    threePictures.appendChild(button);
-    button.addEventListener('click', handleButtonClick);
+    alert('That\'s all for now! Thank you for participating!');
   }
 }
 
